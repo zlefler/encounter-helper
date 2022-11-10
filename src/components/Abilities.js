@@ -4,7 +4,9 @@ import { Card, Typography } from '@mui/material';
 function Abilities() {
   return (
     <Card variant="contained">
-      <Typography variant="h4">Abilities</Typography>
+      <Typography sx={{ alignItems: 'left' }} variant="h4">
+        Abilities
+      </Typography>
       <StatBlock name="STR" />
       <StatBlock name="DEX" />
       <StatBlock name="CON" />
