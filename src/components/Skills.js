@@ -1,3 +1,6 @@
+import SkillBlock from './SkillBlock';
+import { Typography } from '@mui/material';
+
 function Skills() {
   // acrobatics
   // appraise
@@ -35,7 +38,12 @@ function Skills() {
   // swim
   // use magic device*
 
-  return;
+  return (
+    <div>
+      <Typography variant="h4">Skills</Typography>
+      <SkillBlock skill={'acrobatics'} />
+    </div>
+  );
 }
 
 export default Skills;

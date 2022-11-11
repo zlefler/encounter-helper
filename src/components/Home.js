@@ -1,5 +1,6 @@
 import { Card, Typography } from '@mui/material';
 import Abilities from './Abilities';
+import Skills from './Skills';
 
 function Home() {
   return (
@@ -8,6 +9,7 @@ function Home() {
         <Typography variant="h2">Encounter Helper</Typography>
       </Card>
       <Abilities />
+      <Skills />
     </div>
   );
 }
