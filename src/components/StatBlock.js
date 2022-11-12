@@ -14,12 +14,14 @@ function StatBlock({ name }) {
     <div style={{ display: 'flex', flexDirection: 'row' }}>
       <Typography>{name}:</Typography>
       <TextField
+        className="statScore"
         onChange={(e) => setScore(e.target.value)}
         label="Score"
         sx={{ width: '100px', margin: '5px' }}
         defaultValue={score}
       />
       <TextField
+        className="statMod"
         onChange={(e) => setMod(e.target.value)}
         label="Mod"
         sx={{ width: '100px' }}

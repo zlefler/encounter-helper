@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+/* .skillblock {
+  position: absolute;
+  left: 20px;
+} */
+
+.statScore {
+  position: absolute;
+  bottom: 20px;
+}
+
+.statMod {
+  position: absolute;
+  bottom: 15px
+}
