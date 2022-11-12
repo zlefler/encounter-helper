@@ -11,13 +11,13 @@ function StatBlock({ name }) {
   const [mod, setMod] = useState('');
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'row' }}>
+    <div style={{ display: 'flex', flexDirection: 'row', margin: '5px' }}>
       <Typography>{name}:</Typography>
       <TextField
         className="statScore"
         onChange={(e) => setScore(e.target.value)}
         label="Score"
-        sx={{ width: '100px', margin: '5px' }}
+        sx={{ width: '100px', margin: '0 5px' }}
         defaultValue={score}
       />
       <TextField

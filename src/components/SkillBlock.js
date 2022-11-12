@@ -22,7 +22,7 @@ function SkillBlock({ skill }) {
   }, [abilityMod, miscMod, ranks]);
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'row' }}>
+    <div style={{ display: 'flex', flexDirection: 'row', margin: '5px' }}>
       <Typography>{skill}</Typography>
       <TextField
         value={abilityMod}
@@ -35,7 +35,7 @@ function SkillBlock({ skill }) {
         value={ranks}
         onChange={(e) => setRanks(e.target.value)}
         className="skillblock"
-        sx={{ width: '90px' }}
+        sx={{ width: '90px', margin: '0 5px' }}
         label="Ranks"
       />
       <TextField
