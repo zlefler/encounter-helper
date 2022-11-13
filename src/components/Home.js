@@ -1,6 +1,7 @@
 import { Card, Typography } from '@mui/material';
 import Abilities from './Abilities';
 import Skills from './Skills';
+import Weapon from './Weapon';
 
 function Home() {
   return (
@@ -10,6 +11,7 @@ function Home() {
       </Card>
       <Abilities />
       <Skills />
+      <Weapon />
     </div>
   );
 }
