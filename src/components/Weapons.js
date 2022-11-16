@@ -4,7 +4,6 @@ import { useState } from 'react';
 
 function Weapons() {
   const [weaponCount, setWeaponCount] = useState(1);
-  console.log(weaponCount);
 
   return (
     <div>
