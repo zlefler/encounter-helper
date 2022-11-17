@@ -1,4 +1,4 @@
-import { Typography, Button } from '@mui/material';
+import { Typography, Button, Card } from '@mui/material';
 import Weapon from './Weapon';
 import { useState } from 'react';
 
@@ -6,7 +6,7 @@ function Weapons() {
   const [weaponCount, setWeaponCount] = useState(1);
 
   return (
-    <div>
+    <Card>
       <Typography variant="h4">Weapons</Typography>
       <Weapon />
       {weaponCount > 1 && <Weapon />}
@@ -21,7 +21,7 @@ function Weapons() {
           Add Weapon
         </Button>
       )}
-    </div>
+    </Card>
   );
 }
 
