@@ -2,6 +2,7 @@ import { Card, Typography } from '@mui/material';
 import Abilities from './Abilities';
 import Skills from './Skills';
 import Weapons from './Weapons';
+import DiceRoller from './DiceRoller';
 
 function Home() {
   return (
@@ -12,6 +13,7 @@ function Home() {
       <Abilities />
       <Skills />
       <Weapons />
+      <DiceRoller />
     </div>
   );
 }

@@ -1,6 +1,12 @@
 import { useState } from 'react';
 
-import { Card, Typography, Autocomplete, Button } from '@mui/material';
+import {
+  Card,
+  Typography,
+  Autocomplete,
+  Button,
+  TextField,
+} from '@mui/material';
 
 function DiceRoller() {
   const [d4, setd4] = useState('0');
@@ -8,38 +14,54 @@ function DiceRoller() {
   const [d8, setd8] = useState('0');
   const [d10, setd10] = useState('0');
   const [d20, setd20] = useState('0');
-  const [dPct, setDPct] = useState('0');
+  // const [dPct, setDPct] = useState('0');
 
-  const dieRolls = ['1', '2', '3', '4', '5'];
+  const dieRolls = ['0', '1', '2', '3', '4', '5'];
+
+  function clearRolls() {
+    setd4('0');
+    setd6('0');
+    setd8('0');
+    setd10('0');
+    setd20('0');
+  }
+
   return (
     <Card>
       <Autocomplete
-        onClick={(e) => setd4(e.target.value)}
+        onChange={(e) => setd4(e.target.value)}
         options={dieRolls}
+        sx={{ width: '80px', margin: '6px' }}
         label="D4"
+        value={d4}
       />
       <Autocomplete
-        onClick={(e) => setd6(e.target.value)}
+        onChange={(e) => setd6(e.target.value)}
         options={dieRolls}
-        label="D6"
+        sx={{ width: '80px', margin: '6px' }}
+        renderInput={(params) => <TextField {...params} label="D6" />}
       />
       <Autocomplete
-        onClick={(e) => setd8(e.target.value)}
+        onChange={(e) => setd8(e.target.value)}
         options={dieRolls}
-        label="D8"
+        sx={{ width: '80px', margin: '6px' }}
+        renderInput={(params) => <TextField {...params} label="D8" />}
       />
       <Autocomplete
-        onClick={(e) => setd10(e.target.value)}
+        onChange={(e) => setd10(e.target.value)}
         options={dieRolls}
-        label="D10"
+        sx={{ width: '80px', margin: '6px' }}
+        renderInput={(params) => <TextField {...params} label="D10" />}
       />
       <Autocomplete
-        onClick={(e) => setd20(e.target.value)}
+        onChange={(e) => setd20(e.target.value)}
         options={dieRolls}
-        label="D20"
+        sx={{ width: '80px', margin: '6px' }}
+        renderInput={(params) => <TextField {...params} label="D20" />}
       />
-      <Autocomplete label="D%" />
+      {/* <Autocomplete label="D%" /> */}
       <Button>Roll</Button>
+      <Button onClick={() => clearRolls()}>Clear</Button>
     </Card>
   );
 }
