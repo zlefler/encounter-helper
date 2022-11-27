@@ -2,14 +2,14 @@ import React from 'react';
 
 const MyContext = React.createContext();
 function MyProvider(props) {
-  // put functions etc here
+  let abilities = {};
+  let skills = {};
   return (
     <MyContext.Provider
-      value={
-        {
-          // put names of props here
-        }
-      }
+      value={{
+        abilities,
+        skills,
+      }}
     >
       {props.children}
     </MyContext.Provider>

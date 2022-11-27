@@ -1,5 +1,6 @@
+import MyConsumer from './MyContext';
 import { Typography, TextField } from '@mui/material';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // con/str/dex/wis/cha/int
 // and those would propagate bonuses out to the other stuff
@@ -9,6 +10,15 @@ import { useState } from 'react';
 function StatBlock({ name }) {
   const [score, setScore] = useState('');
   const [mod, setMod] = useState('');
+  const [bonus, setBonus] = useState('');
+
+  useEffect(() => {
+    setBonus(
+      mod
+        ? Math.floor((parseInt(score) + parseInt(mod) - 10) / 2)
+        : Math.floor((parseInt(score) - 10) / 2)
+    );
+  }, [score, mod]);
 
   return (
     <div style={{ display: 'flex', flexDirection: 'row', margin: '5px' }}>
@@ -32,12 +42,7 @@ function StatBlock({ name }) {
           <Typography>
             Score: {mod ? parseInt(score) + parseInt(mod) : score}
           </Typography>
-          <Typography>
-            Mod:{' '}
-            {mod
-              ? Math.floor((parseInt(score) + parseInt(mod) - 10) / 2)
-              : Math.floor((parseInt(score) - 10) / 2)}
-          </Typography>
+          <Typography>Mod: {bonus}</Typography>
         </div>
       )}
     </div>
