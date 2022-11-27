@@ -7,7 +7,9 @@ function Weapons() {
 
   return (
     <Card>
-      <Typography variant="h4">Weapons</Typography>
+      <Typography variant="h4" sx={{ margin: '10px' }}>
+        Weapons
+      </Typography>
       <Weapon />
       {weaponCount > 1 && <Weapon />}
       {weaponCount > 2 && <Weapon />}
