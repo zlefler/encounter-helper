@@ -49,6 +49,8 @@ function DiceRoller() {
     setdpct('');
   }
 
+  // TODO: Fix MyContext: currently breaks this component Check out Encounter-Generator for help.
+
   return (
     <MyConsumer>
       {(context) => {
