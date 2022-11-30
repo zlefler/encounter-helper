@@ -2,11 +2,6 @@ import MyConsumer from './MyContext';
 import { Typography, TextField } from '@mui/material';
 import { useState, useEffect } from 'react';
 
-// con/str/dex/wis/cha/int
-// and those would propagate bonuses out to the other stuff
-// other fields would be attack, damage (maybe multiples for different weapons?),
-//  all three saves, all the skills
-
 function StatBlock({ name }) {
   const [score, setScore] = useState('');
   const [mod, setMod] = useState('');
