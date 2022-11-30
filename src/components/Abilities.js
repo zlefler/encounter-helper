@@ -8,11 +8,11 @@ function Abilities() {
         Abilities
       </Typography>
       <StatBlock name="STR" />
-      {/* <StatBlock name="DEX" />
+      <StatBlock name="DEX" />
       <StatBlock name="CON" />
       <StatBlock name="INT" />
       <StatBlock name="WIS" />
-      <StatBlock name="CHA" /> */}
+      <StatBlock name="CHA" />
     </Card>
   );
 }

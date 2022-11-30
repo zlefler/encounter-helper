@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const MyContext = React.createContext();
+
 function MyProvider(props) {
-  let abilities = {};
-  let skills = {};
+  const [abilities, setAbilities] = useState({});
+  const [skills, setSkills] = useState({});
   return (
     <MyContext.Provider
       value={{
         abilities,
+        setAbilities,
         skills,
+        setSkills,
       }}
     >
       {props.children}
@@ -18,4 +21,4 @@ function MyProvider(props) {
 
 const MyConsumer = MyContext.Consumer;
 
-export default { MyProvider, MyConsumer };
+export { MyProvider, MyConsumer };

@@ -1,4 +1,4 @@
-import MyConsumer from './MyContext';
+import { MyConsumer } from './MyContext';
 import { useState } from 'react';
 
 import { Card, Button, TextField, Typography } from '@mui/material';
