@@ -27,8 +27,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_16_204014) do
   end
 
   create_table "characters", force: :cascade do |t|
-    t.string "name", null: false
-    t.integer "user_id", null: false
+    t.string "name"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -69,13 +69,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_16_204014) do
     t.integer "survival"
     t.integer "swim"
     t.integer "use_magic_device"
+    t.integer "character_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "password_digest"
+    t.string "username", null: false
+    t.string "password_digest", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -88,7 +89,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_16_204014) do
     t.string "type"
     t.integer "range"
     t.boolean "is_ranged"
-    t.integer "character_id"
+    t.integer "character_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

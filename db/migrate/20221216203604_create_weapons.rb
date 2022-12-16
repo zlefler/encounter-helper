@@ -8,7 +8,7 @@ class CreateWeapons < ActiveRecord::Migration[7.0]
       t.string :type
       t.integer :range
       t.boolean :is_ranged
-      t.integer :character_id
+      t.integer :character_id, null: false
       t.timestamps
     end
   end

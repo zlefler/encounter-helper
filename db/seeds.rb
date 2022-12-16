@@ -8,4 +8,8 @@
 
 User.create([{username: 'asdf', password_digest: BCrypt::Password.create('1234')}, {username: 'fdsa', password_digest: BCrypt::Password.create('4321')}])
 
-Ability.create([{strength: 10}, {dexterity: 12}, {constitution: 12}, {intelligence: 14}, {wisdom: 11}, {charisma: 9}])
+Character.create([{name: 'Astaroth', user_id: 1}])
+
+Ability.create([{strength: 14, dexterity: 11, constitution: 12, intelligence: 14, wisdom: 11, charisma: 9, character_id: 1}])
+
+Skill.create([{perception: 5, use_magic_device: 8, intimidate: 12, character_id: 1}])
