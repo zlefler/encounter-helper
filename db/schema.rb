@@ -69,7 +69,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_16_204014) do
     t.integer "survival"
     t.integer "swim"
     t.integer "use_magic_device"
-    t.integer "character_id", null: false
+    t.integer "character_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
