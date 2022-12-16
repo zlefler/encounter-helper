@@ -4,8 +4,28 @@
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
+shortsword:
+  {
+    name: 'Shortsword',
+    dice_type: 6,
+    dice_num: 1,
+    crit_range_start: 19,
+    crit_range_end: 20,
+    crit_multiplier: 2,
+    type: 'p',
+    character_id: 1,
+  }
 # column: value
 #
-two: {}
+morningstar:
+  {
+    name: 'Morningstar',
+    dice_type: 8,
+    dice_num: 1,
+    crit_range_start: 20,
+    crit_range_end: 20,
+    crit_multiplier: 2,
+    type: 'b/p',
+    character_id: 1,
+  }
 # column: value

@@ -28,7 +28,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_16_204014) do
 
   create_table "characters", force: :cascade do |t|
     t.string "name"
-    t.integer "user_id"
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -69,7 +69,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_16_204014) do
     t.integer "survival"
     t.integer "swim"
     t.integer "use_magic_device"
-    t.integer "character_id"
+    t.integer "character_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -83,8 +83,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_16_204014) do
 
   create_table "weapons", force: :cascade do |t|
     t.string "name"
-    t.integer "attack_bonus"
-    t.integer "crit_range"
+    t.integer "dice_type"
+    t.integer "dice_num"
+    t.integer "crit_range_start"
+    t.integer "crit_range_end"
     t.integer "crit_multiplier"
     t.string "type"
     t.integer "range"
