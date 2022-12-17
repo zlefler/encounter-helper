@@ -1,76 +1,76 @@
-import { TextField, Box, Button } from '@mui/material';
+import { TextField, Box, Button, Card, Typography } from '@mui/material';
 import { useState } from 'react';
+import { MyConsumer } from './MyContext';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [user, setUser] = useState('');
-  const [loginFailed, setLoginFailed] = useState(false);
 
-  function onLogin(e, username, password) {
-    e.preventDefault();
-    fetch('/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username, password }),
-    }).then((res) => {
-      if (res.ok) {
-        setLoginFailed(false);
-        res.json().then((userInfo) => setUser(userInfo));
-      } else {
-        setLoginFailed(true);
-      }
-    });
-  }
-
-  function onLogout() {
-    fetch('/logout', {
-      method: 'DELETE',
-    });
-    setUser('');
+  let navigate = useNavigate();
+  function routeChange(path) {
+    navigate(path);
   }
 
   return (
-    <Box
-      className="app"
-      component="form"
-      noValidate
-      autoComplete="off"
-      onSubmit={(e) => {
-        // routeChange();
-        onLogin(e, username, password);
-      }}
-    >
-      {!user ? (
-        <>
-          <TextField
-            label="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <TextField
-            label="password"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <Button type="submit">Log In</Button>
-        </>
-      ) : (
-        <Button
-          onClick={() => {
-            // routeChange();
-            onLogout();
-          }}
-        >
-          Log Out
-        </Button>
+    <MyConsumer>
+      {(context) => (
+        <div>
+          <Card variant="contained" sx={{ margin: '2%' }}>
+            <Typography variant="h3">
+              Welcome to the Encounter Helper!
+            </Typography>
+            <Typography variant="h4">Log in here.</Typography>
+          </Card>
+
+          <Box
+            className="app"
+            component="form"
+            noValidate
+            autoComplete="off"
+            onSubmit={(e) => {
+              // routeChange();
+              context.onLogin(e, username, password);
+            }}
+          >
+            {!context.user ? (
+              <>
+                <TextField
+                  label="username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                />
+                <TextField
+                  label="password"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                <Button type="submit">Log In</Button>
+              </>
+            ) : (
+              <Button
+                onClick={() => {
+                  // routeChange();
+                  context.onLogout();
+                }}
+              >
+                Log Out
+              </Button>
+            )}
+            {context.loginFailed && (
+              <p>Sorry, that didn't work. Are you sure you have an account?</p>
+            )}
+          </Box>
+          <Card variant="contained" sx={{ margin: '2%' }}>
+            <Typography variant="h4">Don't have an account?</Typography>
+            <Button variant="contained" onClick={() => routeChange('/signup')}>
+              Sign up here
+            </Button>
+          </Card>
+        </div>
       )}
-      {loginFailed && (
-        <p>Sorry, that didn't work. Are you sure you have an account?</p>
-      )}
-    </Box>
+    </MyConsumer>
   );
 }
-
 export default Login;
