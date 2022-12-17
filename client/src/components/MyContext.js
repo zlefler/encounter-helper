@@ -5,6 +5,7 @@ const MyContext = React.createContext();
 function MyProvider(props) {
   const [abilities, setAbilities] = useState({});
   const [skills, setSkills] = useState({});
+
   return (
     <MyContext.Provider
       value={{
