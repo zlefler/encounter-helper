@@ -3,13 +3,11 @@ import { Card, Typography, Button } from '@mui/material';
 import Abilities from './Abilities';
 import Skills from './Skills';
 import Weapons from './Weapons';
-import DiceRoller from './DiceRoller';
 
 function Home() {
   const [abilities, setAbilities] = useState(false);
   const [skills, setSkills] = useState(false);
   const [weapons, setWeapons] = useState(false);
-  const [diceRoller, setDiceRoller] = useState(false);
   return (
     <div>
       <Card variant="contained" sx={{ margin: '2%' }}>
@@ -23,10 +21,6 @@ function Home() {
       {skills && <Skills />}
       <Button onClick={() => setWeapons((weapons) => !weapons)}>Weapons</Button>
       {weapons && <Weapons />}
-      <Button onClick={() => setDiceRoller((diceRoller) => !diceRoller)}>
-        Dice Roller
-      </Button>
-      {diceRoller && <DiceRoller />}
     </div>
   );
 }
