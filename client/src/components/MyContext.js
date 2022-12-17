@@ -44,15 +44,15 @@ function MyProvider(props) {
   return (
     <MyContext.Provider
       value={{
-        abilities: abilities,
-        setAbilities: setAbilities,
-        skills: skills,
-        setSkills: setSkills,
-        user: user,
+        abilities,
+        setAbilities,
+        skills,
+        setSkills,
+        user,
         setUser,
-        onLogin: onLogin,
-        onLogout: onLogout,
-        loginFailed: loginFailed,
+        onLogin,
+        onLogout,
+        loginFailed,
       }}
     >
       {props.children}

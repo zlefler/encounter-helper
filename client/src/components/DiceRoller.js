@@ -1,7 +1,6 @@
 import { MyConsumer } from './MyContext';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
 import { Card, Button, TextField, Typography } from '@mui/material';
 
 function DiceRoller() {
@@ -57,8 +56,17 @@ function DiceRoller() {
 
   return (
     <MyConsumer>
-      {(context) => {
+      {(context) => (
         <>
+          <Button
+            variant="contained"
+            onClick={() => {
+              context.onLogout();
+              routeChange('/');
+            }}
+          >
+            sign out
+          </Button>
           <Card>
             <TextField
               sx={{ width: '80px', margin: '6px' }}
@@ -100,11 +108,11 @@ function DiceRoller() {
             <Button onClick={() => clearRolls()}>Clear</Button>
             {rollTotal && <Typography>Total: {rollTotal}</Typography>}
           </Card>
-          <Button onClick={() => routeChange('/edit_char')}>
+          <Button onClick={() => routeChange('/edit_character')}>
             edit character
           </Button>
-        </>;
-      }}
+        </>
+      )}
     </MyConsumer>
   );
 }
