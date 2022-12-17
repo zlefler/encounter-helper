@@ -16,7 +16,7 @@ import Navbar from './components/Navbar';
 
 // TODO: build "add new character" button
 
-// TODO: Figure out where current character ID lives. Does it live in state
+// TODO: Figure out where current character ID should live. Does it live in state
 // and gets passed on every fetch? Probably. If so, make sure back end
 // knows where to find it.
 

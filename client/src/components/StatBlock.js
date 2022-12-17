@@ -5,15 +5,15 @@ import { useState, useEffect } from 'react';
 function StatBlock({ name }) {
   const [score, setScore] = useState('');
   const [mod, setMod] = useState('');
-  const [bonus, setBonus] = useState('');
+  // const [bonus, setBonus] = useState('');
 
-  useEffect(() => {
-    setBonus(
-      mod
-        ? Math.floor((parseInt(score) + parseInt(mod) - 10) / 2)
-        : Math.floor((parseInt(score) - 10) / 2)
-    );
-  }, [score, mod]);
+  // useEffect(() => {
+  //   setBonus(
+  //     mod
+  //       ? Math.floor((parseInt(score) + parseInt(mod) - 10) / 2)
+  //       : Math.floor((parseInt(score) - 10) / 2)
+  //   );
+  // }, [score, mod]);
 
   return (
     <MyConsumer>
@@ -34,14 +34,14 @@ function StatBlock({ name }) {
             sx={{ width: '100px' }}
             defaultValue={mod}
           />
-          {score && (
+          {/* {score && (
             <div>
               <Typography>
                 Score: {mod ? parseInt(score) + parseInt(mod) : score}
               </Typography>
               <Typography>Mod: {bonus}</Typography>
             </div>
-          )}
+          )} */}
         </div>
       )}
     </MyConsumer>

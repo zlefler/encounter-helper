@@ -3,18 +3,12 @@ import { Card, Typography, Button } from '@mui/material';
 import Abilities from './Abilities';
 import Skills from './Skills';
 import Weapons from './Weapons';
-import { useNavigate } from 'react-router-dom';
 import { MyConsumer } from './MyContext';
 
 function Home() {
   const [abilities, setAbilities] = useState(false);
   const [skills, setSkills] = useState(false);
   const [weapons, setWeapons] = useState(false);
-
-  let navigate = useNavigate();
-  function routeChange(path) {
-    navigate(path);
-  }
 
   return (
     <MyConsumer>
