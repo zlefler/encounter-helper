@@ -1,0 +1,40 @@
+import { useNavigate } from 'react-router-dom';
+import { Card, Typography, Button } from '@mui/material';
+import { MyConsumer } from './MyContext';
+
+function CharacterPicker() {
+  const navigate = useNavigate();
+  function routeChange(path) {
+    navigate(path);
+  }
+
+  return (
+    <MyConsumer>
+      {(context) => (
+        <>
+          {context.characters === [] ? (
+            <>
+              <Typography variant="h4">
+                Pick which character you want to use
+              </Typography>
+              <Card>
+                {context.characters.map((character) => (
+                  <p>{character.name}</p>
+                ))}
+              </Card>
+            </>
+          ) : (
+            <Typography variant="h4">
+              You don't have any characters yet.
+            </Typography>
+          )}
+          <Button onClick={() => routeChange('/edit_character')}>
+            Create new character
+          </Button>
+        </>
+      )}
+    </MyConsumer>
+  );
+}
+
+export default CharacterPicker;

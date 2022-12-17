@@ -4,21 +4,22 @@ import CharacterBuilder from './components/CharacterBuilder';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import DiceRoller from './components/DiceRoller';
+import CharacterPicker from './components/CharacterPicker';
 
 // TODO: figure out how you want login info / signup stuff to persist on the page
 // Even if you don't want them to persist, you'll want a signout button to persist.
 
-// TODO: build functions to get stats from character
+// TODO: Make data persist when building character on front end
 
-// TODO: build page (or form on page?) to choose which character for user
+// TODO: build functions to save/get stats from character on back end
 
 // TODO: build "add new character" button
 
-// TODO: add name to character editor
+// TODO: Figure out where current character ID lives. Does it live in state
+// and gets passed on every fetch? Probably. If so, make sure back end
+// knows where to find it.
 
-// TODO: if user doesn't have a character yet, take them straight to editor?
-// or have landing page that says "you don't have any characters, click here to
-// make one"
+// TODO: add name to character editor
 
 function App() {
   return (
@@ -31,6 +32,8 @@ function App() {
         <Route path="/edit_character" element={<CharacterBuilder />} />
 
         <Route path="/diceroller" element={<DiceRoller />} />
+
+        <Route path="/which_character" element={<CharacterPicker />} />
       </Routes>
     </BrowserRouter>
   );

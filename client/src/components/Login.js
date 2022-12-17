@@ -30,7 +30,7 @@ function Login() {
             autoComplete="off"
             onSubmit={(e) => {
               context.onLogin(e, username, password);
-              routeChange('/diceroller');
+              routeChange('/which_character');
             }}
           >
             {!context.user ? (

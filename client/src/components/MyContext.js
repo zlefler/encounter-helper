@@ -7,16 +7,24 @@ function MyProvider(props) {
   const [skills, setSkills] = useState({});
   const [user, setUser] = useState('');
   const [loginFailed, setLoginFailed] = useState(false);
+  const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
     fetch('/me').then((res) => {
       if (res.ok) {
         res.json().then((currentUser) => {
           setUser(currentUser);
+          fetchCharacters();
         });
       }
     });
   }, []);
+
+  function fetchCharacters() {
+    fetch(`/characters/${user.id}`).then((res) => {
+      res.json().then((characterInfo) => setCharacters(characterInfo));
+    });
+  }
 
   function onLogout() {
     fetch('/logout', {
@@ -35,6 +43,7 @@ function MyProvider(props) {
       if (res.ok) {
         setLoginFailed(false);
         res.json().then((userInfo) => userInfo);
+        fetchCharacters();
       } else {
         setLoginFailed(true);
       }
@@ -48,6 +57,7 @@ function MyProvider(props) {
         setAbilities,
         skills,
         setSkills,
+        characters,
         user,
         setUser,
         onLogin,
