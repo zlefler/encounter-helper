@@ -18,7 +18,6 @@ function Login() {
         setLoginFailed(false);
         res.json().then((userInfo) => setUser(userInfo));
       } else {
-        res.json().then((error) => console.log(error));
         setLoginFailed(true);
       }
     });
