@@ -58,21 +58,6 @@ function DiceRoller() {
     <MyConsumer>
       {(context) => (
         <>
-          <Button
-            variant="contained"
-            onClick={() => {
-              context.onLogout();
-              routeChange('/');
-            }}
-          >
-            sign out
-          </Button>
-          <Button onClick={() => routeChange('/which_character')}>
-            switch character
-          </Button>
-          <Button onClick={() => routeChange('/edit_character')}>
-            edit character
-          </Button>
           <Card>
             <TextField
               sx={{ width: '80px', margin: '6px' }}

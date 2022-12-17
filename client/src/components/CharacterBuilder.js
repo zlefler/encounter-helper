@@ -20,15 +20,6 @@ function Home() {
     <MyConsumer>
       {(context) => (
         <div>
-          <Button
-            variant="contained"
-            onClick={() => {
-              context.onLogout();
-              routeChange('/');
-            }}
-          >
-            sign out
-          </Button>
           <Card variant="contained" sx={{ margin: '2%' }}>
             <Typography variant="h2">Encounter Helper</Typography>
           </Card>
