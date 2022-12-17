@@ -18,6 +18,13 @@ function MyProvider(props) {
     });
   }, []);
 
+  function onLogout() {
+    fetch('/logout', {
+      method: 'DELETE',
+    });
+    setUser('');
+  }
+
   function onLogin(e, username, password) {
     e.preventDefault();
     fetch('/login', {
@@ -27,18 +34,11 @@ function MyProvider(props) {
     }).then((res) => {
       if (res.ok) {
         setLoginFailed(false);
-        res.json().then((userInfo) => setUser(userInfo));
+        res.json().then((userInfo) => userInfo);
       } else {
         setLoginFailed(true);
       }
     });
-  }
-
-  function onLogout() {
-    fetch('/logout', {
-      method: 'DELETE',
-    });
-    setUser('');
   }
 
   return (
@@ -49,6 +49,7 @@ function MyProvider(props) {
         skills: skills,
         setSkills: setSkills,
         user: user,
+        setUser,
         onLogin: onLogin,
         onLogout: onLogout,
         loginFailed: loginFailed,

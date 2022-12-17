@@ -13,7 +13,7 @@ function App() {
 
         <Route path="/signup" element={<Signup />} />
 
-        <Route path="/build" element={<CharacterBuilder />} />
+        <Route path="/edit_character" element={<CharacterBuilder />} />
 
         <Route path="/diceroller" element={<DiceRoller />} />
       </Routes>

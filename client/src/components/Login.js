@@ -29,8 +29,8 @@ function Login() {
             noValidate
             autoComplete="off"
             onSubmit={(e) => {
-              // routeChange();
               context.onLogin(e, username, password);
+              routeChange('/diceroller');
             }}
           >
             {!context.user ? (
@@ -51,7 +51,6 @@ function Login() {
             ) : (
               <Button
                 onClick={() => {
-                  // routeChange();
                   context.onLogout();
                 }}
               >
