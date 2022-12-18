@@ -22,6 +22,8 @@ import Navbar from './components/Navbar';
 
 // TODO: add name to character editor
 
+// TODO: Refactor Skills like you did Abilities
+
 function App() {
   return (
     <BrowserRouter>

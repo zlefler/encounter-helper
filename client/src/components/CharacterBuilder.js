@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Card, Typography, Button } from '@mui/material';
+import { Card, Typography, Button, TextField } from '@mui/material';
 import Abilities from './Abilities';
 import Skills from './Skills';
 import Weapons from './Weapons';
@@ -9,6 +9,7 @@ function Home() {
   const [abilities, setAbilities] = useState(false);
   const [skills, setSkills] = useState(false);
   const [weapons, setWeapons] = useState(false);
+  const [name, setName] = useState('');
 
   return (
     <MyConsumer>
@@ -17,6 +18,13 @@ function Home() {
           <Card variant="contained" sx={{ margin: '2%' }}>
             <Typography variant="h2">Encounter Helper</Typography>
           </Card>
+          <TextField
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="skillblock"
+            sx={{ width: '120px', height: '10px' }}
+            label="Name"
+          />
           <Button onClick={() => setAbilities((abilities) => !abilities)}>
             Abilities
           </Button>
