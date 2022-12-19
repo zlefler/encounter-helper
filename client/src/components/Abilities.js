@@ -1,4 +1,3 @@
-import StatBlock from './StatBlock';
 import { Box, Typography, Button, TextField } from '@mui/material';
 import { MyConsumer } from './MyContext';
 import { useState } from 'react';
@@ -60,7 +59,21 @@ function Abilities() {
             sx={{ width: '70px', margin: '0 5px' }}
             defaultValue={charisma}
           />
-          <Button variant="contained">Save</Button>
+          <Button
+            variant="contained"
+            onClick={() =>
+              context.onSaveAbilities({
+                strength,
+                dexterity,
+                constitution,
+                intelligence,
+                wisdom,
+                charisma,
+              })
+            }
+          >
+            Save
+          </Button>
         </Box>
       )}
     </MyConsumer>

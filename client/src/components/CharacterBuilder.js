@@ -22,9 +22,12 @@ function Home() {
             value={name}
             onChange={(e) => setName(e.target.value)}
             className="skillblock"
-            sx={{ width: '120px', height: '10px' }}
+            sx={{ width: '300px', height: '10px' }}
             label="Name"
           />
+          <Button variant="contained" onClick={() => context.onSaveName(name)}>
+            save
+          </Button>
           <Button onClick={() => setAbilities((abilities) => !abilities)}>
             Abilities
           </Button>

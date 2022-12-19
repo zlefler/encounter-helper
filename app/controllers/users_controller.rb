@@ -7,11 +7,12 @@ class UsersController < ApplicationController
     end
 
     def show
-        user = User.find(params[:id])
+        user = User.find(session[:user_id])
         if user
         render json: user, status: :ok
         else
             render json: {error: "No user with that id found"}, status: :unprocessable_entity
+        end
     end
 
     private

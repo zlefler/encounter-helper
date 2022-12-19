@@ -20,8 +20,6 @@ import Navbar from './components/Navbar';
 // and gets passed on every fetch? Probably. If so, make sure back end
 // knows where to find it.
 
-// TODO: add name to character editor
-
 // TODO: Refactor Skills like you did Abilities
 
 function App() {
