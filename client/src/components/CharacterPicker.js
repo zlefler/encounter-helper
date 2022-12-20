@@ -28,7 +28,7 @@ function CharacterPicker() {
               You don't have any characters yet.
             </Typography>
           )}
-          <Button onClick={() => routeChange('/edit_character')}>
+          <Button onClick={() => routeChange('/new_character')}>
             Create new character
           </Button>
         </>

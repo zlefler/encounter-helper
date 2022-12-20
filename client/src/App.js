@@ -6,6 +6,7 @@ import Signup from './components/Signup';
 import DiceRoller from './components/DiceRoller';
 import CharacterPicker from './components/CharacterPicker';
 import Navbar from './components/Navbar';
+import Name from './components/Name';
 
 // TODO: figure out how you want login info / signup stuff to persist on the page
 // Even if you don't want them to persist, you'll want a signout button to persist.
@@ -34,6 +35,8 @@ function App() {
         <Route path="/edit_character" element={<CharacterBuilder />} />
 
         <Route path="/diceroller" element={<DiceRoller />} />
+
+        <Route path="/new_character" element={<Name />} />
 
         <Route path="/which_character" element={<CharacterPicker />} />
       </Routes>

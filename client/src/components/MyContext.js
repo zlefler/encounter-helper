@@ -8,7 +8,7 @@ function MyProvider(props) {
   const [user, setUser] = useState('');
   const [loginFailed, setLoginFailed] = useState(false);
   const [characters, setCharacters] = useState([]);
-  const [currentCharacterId, setCurrentCharacterID] = useState('');
+  const [currentCharacter, setCurrentCharacter] = useState('');
 
   useEffect(() => {
     fetch('/me').then((res) => {
@@ -51,21 +51,26 @@ function MyProvider(props) {
     });
   }
 
-  function onSaveName(newName) {
-    fetch(`/characters/${newName}`, {
+  function onCreateCharacter(characterName, characterLevel) {
+    fetch('/characters', {
       method: 'POST',
-      headers: { ContentType: 'application/json' },
-      body: JSON.stringify(newName),
-    }).then((res) => res.json().then((id) => setCurrentCharacterID(id)));
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: characterName, level: characterLevel }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setCurrentCharacter(data);
+      });
   }
 
   function OnSaveAbilities(newAbilities) {
     fetch(`/abilities`, {
       method: 'POST',
-      headers: { ContentType: 'application/json' },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         newAbilities,
-        characterID: currentCharacterId,
+        characterID: currentCharacter.id,
       }).then((res) =>
         res.json().then((abilityInfo) => setAbilities(abilityInfo))
       ),
@@ -76,7 +81,8 @@ function MyProvider(props) {
     <MyContext.Provider
       value={{
         abilities,
-        onSaveName,
+        onCreateCharacter,
+        currentCharacter,
         OnSaveAbilities,
         skills,
         setSkills,

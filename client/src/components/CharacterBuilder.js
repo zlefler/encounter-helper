@@ -17,17 +17,10 @@ function Home() {
         <div>
           <Card variant="contained" sx={{ margin: '2%' }}>
             <Typography variant="h2">Encounter Helper</Typography>
+            <Typography variant="h3">
+              {context.currentCharacter.name}
+            </Typography>
           </Card>
-          <TextField
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="skillblock"
-            sx={{ width: '300px', height: '10px' }}
-            label="Name"
-          />
-          <Button variant="contained" onClick={() => context.onSaveName(name)}>
-            save
-          </Button>
           <Button onClick={() => setAbilities((abilities) => !abilities)}>
             Abilities
           </Button>

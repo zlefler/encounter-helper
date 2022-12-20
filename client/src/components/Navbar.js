@@ -28,11 +28,9 @@ function Navbar() {
               </Button>
             </>
           )}
-          {context.characters.length > 1 && (
-            <Button onClick={() => routeChange('/which_character')}>
-              switch character
-            </Button>
-          )}
+          <Button onClick={() => routeChange('/which_character')}>
+            Back To characters
+          </Button>
         </>
       )}
     </MyConsumer>
