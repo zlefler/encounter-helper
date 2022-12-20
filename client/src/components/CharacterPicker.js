@@ -12,14 +12,21 @@ function CharacterPicker() {
     <MyConsumer>
       {(context) => (
         <>
-          {context.characters === [] ? (
+          {context.characters !== [] ? (
             <>
               <Typography variant="h4">
                 Pick which character you want to use
               </Typography>
               <Card>
                 {context.characters.map((character) => (
-                  <p>{character.name}</p>
+                  <Button
+                    onClick={() => {
+                      context.setCurrentCharacter(character);
+                      routeChange('/edit_character');
+                    }}
+                  >
+                    {character.name}
+                  </Button>
                 ))}
               </Card>
             </>

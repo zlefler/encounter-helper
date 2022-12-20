@@ -23,7 +23,10 @@ function MyProvider(props) {
 
   function fetchCharacters() {
     fetch(`/characters/${user.id}`).then((res) => {
-      res.json().then((characterInfo) => setCharacters(characterInfo));
+      res.json().then((characterInfo) => {
+        console.log(characterInfo);
+        setCharacters(characterInfo);
+      });
     });
   }
 
@@ -58,10 +61,7 @@ function MyProvider(props) {
       body: JSON.stringify({ name: characterName, level: characterLevel }),
     })
       .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setCurrentCharacter(data);
-      });
+      .then((data) => setCurrentCharacter(data));
   }
 
   function OnSaveAbilities(newAbilities) {
@@ -83,6 +83,7 @@ function MyProvider(props) {
         abilities,
         onCreateCharacter,
         currentCharacter,
+        setCurrentCharacter,
         OnSaveAbilities,
         skills,
         setSkills,
