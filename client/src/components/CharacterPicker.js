@@ -22,6 +22,7 @@ function CharacterPicker() {
                   <Button
                     onClick={() => {
                       context.setCurrentCharacter(character);
+                      context.setNewCharacter(false);
                       routeChange('/edit_character');
                     }}
                   >
@@ -35,7 +36,12 @@ function CharacterPicker() {
               You don't have any characters yet.
             </Typography>
           )}
-          <Button onClick={() => routeChange('/new_character')}>
+          <Button
+            onClick={() => {
+              context.setNewCharacter(true);
+              routeChange('/new_character');
+            }}
+          >
             Create new character
           </Button>
         </>

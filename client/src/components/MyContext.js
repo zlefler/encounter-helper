@@ -9,6 +9,7 @@ function MyProvider(props) {
   const [loginFailed, setLoginFailed] = useState(false);
   const [characters, setCharacters] = useState([]);
   const [currentCharacter, setCurrentCharacter] = useState('');
+  const [newCharacter, setNewCharacter] = useState(true);
 
   useEffect(() => {
     fetch('/me').then((res) => {
@@ -23,10 +24,7 @@ function MyProvider(props) {
 
   function fetchCharacters() {
     fetch(`/characters/${user.id}`).then((res) => {
-      res.json().then((characterInfo) => {
-        console.log(characterInfo);
-        setCharacters(characterInfo);
-      });
+      res.json().then((characterInfo) => setCharacters(characterInfo));
     });
   }
 
@@ -93,6 +91,8 @@ function MyProvider(props) {
         onLogin,
         onLogout,
         loginFailed,
+        newCharacter,
+        setNewCharacter,
       }}
     >
       {props.children}
