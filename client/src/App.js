@@ -9,7 +9,6 @@ import Navbar from './components/Navbar';
 import Name from './components/Name';
 
 // TODO: Make data persist when building character on front end
-// First up is abilities.
 
 // TODO: build functions to save/get stats from character on back end
 

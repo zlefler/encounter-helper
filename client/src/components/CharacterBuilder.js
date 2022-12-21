@@ -17,9 +17,19 @@ function Home() {
         <div>
           <Card variant="contained" sx={{ margin: '2%' }}>
             <Typography variant="h2">Encounter Helper</Typography>
-            <Typography variant="h3">
-              {context.currentCharacter.name}
-            </Typography>
+            {context.currentCharacter ? (
+              <>
+                {' '}
+                <Typography variant="h4">You are currently editing:</Typography>
+                <Typography variant="h3">
+                  {context.currentCharacter.name}
+                </Typography>{' '}
+              </>
+            ) : (
+              <Typography variant="h4">
+                You do not have a character selected.
+              </Typography>
+            )}
           </Card>
           <Button
             onClick={() => {

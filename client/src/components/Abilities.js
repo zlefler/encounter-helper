@@ -14,14 +14,14 @@ function Abilities() {
     <MyConsumer>
       {(context) => (
         <>
-          {/* {context.newCharacter === false && (
+          {Object.keys(context.abilities).length !== 0 && (
             <Card>
               <Typography variant="h3">Current ability scores:</Typography>
               {Object.values(context.abilites).map((ability) => (
                 <Typography variant="h4">{ability}</Typography>
               ))}
             </Card>
-          )} */}
+          )}
           <Box component="form">
             <Typography sx={{ alignItems: 'left' }} variant="h4">
               Abilities
