@@ -13,7 +13,8 @@ class AbilitiesController < ApplicationController
     end
 
     def show
-        ability = Ability.find(params[:id])
-        render json: ability
+        character = Character.find(params[:id])
+        ability = Ability.find_by(character_id: character.id)
+        render json: ability, status: :ok
     end
 end

@@ -22,6 +22,14 @@ function MyProvider(props) {
     });
   }, []);
 
+  useEffect(() => {
+    if (currentCharacter) {
+      fetch(`get_abilities/${currentCharacter.id}`)
+        .then((res) => res.json())
+        .then((data) => setAbilities(data));
+    }
+  }, [currentCharacter]);
+
   function fetchCharacters() {
     fetch(`/characters/${user.id}`).then((res) => {
       res.json().then((characterInfo) => setCharacters(characterInfo));
@@ -76,10 +84,7 @@ function MyProvider(props) {
         characterID: currentCharacter.id,
       }),
     }).then((res) =>
-      res.json().then((abilityInfo) => {
-        console.log(abilityInfo);
-        setAbilities(abilityInfo);
-      })
+      res.json().then((abilityInfo) => setAbilities(abilityInfo))
     );
   }
 
