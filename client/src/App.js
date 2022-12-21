@@ -33,7 +33,7 @@ function App() {
 
         <Route path="/diceroller" element={<DiceRoller />} />
 
-        <Route path="/new_character" element={<Name />} />
+        <Route path="/character_name" element={<Name />} />
 
         <Route path="/which_character" element={<CharacterPicker />} />
       </Routes>

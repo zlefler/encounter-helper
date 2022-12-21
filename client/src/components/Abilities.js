@@ -14,14 +14,17 @@ function Abilities() {
     <MyConsumer>
       {(context) => (
         <>
-          {Object.keys(context.abilities).length !== 0 && (
-            <Card>
+          {/* {Object.keys(context.abilities).length !== 0 && (
+            <Card variant="contained">
               <Typography variant="h3">Current ability scores:</Typography>
-              {Object.values(context.abilities).map((ability) => (
-                <Typography variant="h4">{ability}</Typography>
-              ))}
+              {Object.values(context.abilities).forEach(function (key, index) {
+                <Typography variant="h4">
+                  {context.abilities[key]}
+                  {key}
+                </Typography>;
+              })}
             </Card>
-          )}
+          )} */}
           <Box component="form">
             <Typography sx={{ alignItems: 'left' }} variant="h4">
               Abilities

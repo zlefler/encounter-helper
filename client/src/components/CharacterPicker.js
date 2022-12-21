@@ -20,6 +20,7 @@ function CharacterPicker() {
               <Card>
                 {context.characters.map((character) => (
                   <Button
+                    key={character.id}
                     onClick={() => {
                       context.setCurrentCharacter(character);
                       context.setNewCharacter(false);
@@ -39,7 +40,7 @@ function CharacterPicker() {
           <Button
             onClick={() => {
               context.setNewCharacter(true);
-              routeChange('/new_character');
+              routeChange('/character_name');
             }}
           >
             Create new character

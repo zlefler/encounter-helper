@@ -46,7 +46,6 @@ function Skills() {
       {skills.map((skillName) => (
         <SkillBlock skill={skillName} />
       ))}
-      <SkillBlock skill={'acrobatics'} />
     </div>
   );
 }

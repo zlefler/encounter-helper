@@ -1,15 +1,21 @@
 import { useState } from 'react';
-import { Card, Typography, Button, TextField } from '@mui/material';
+import { Card, Typography, Button } from '@mui/material';
 import Abilities from './Abilities';
 import Skills from './Skills';
 import Weapons from './Weapons';
 import { MyConsumer } from './MyContext';
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
   const [abilities, setAbilities] = useState(false);
   const [skills, setSkills] = useState(false);
   const [weapons, setWeapons] = useState(false);
   const [name, setName] = useState('');
+
+  const navigate = useNavigate();
+  function routeChange(path) {
+    navigate(path);
+  }
 
   return (
     <MyConsumer>
@@ -19,11 +25,18 @@ function Home() {
             <Typography variant="h2">Encounter Helper</Typography>
             {context.currentCharacter ? (
               <>
-                {' '}
                 <Typography variant="h4">You are currently editing:</Typography>
                 <Typography variant="h3">
                   {context.currentCharacter.name}
-                </Typography>{' '}
+                </Typography>
+                <Button
+                  onClick={() => {
+                    context.setNewCharacter(false);
+                    routeChange('/character_name');
+                  }}
+                >
+                  change character name/level
+                </Button>
               </>
             ) : (
               <Typography variant="h4">
@@ -31,12 +44,7 @@ function Home() {
               </Typography>
             )}
           </Card>
-          <Button
-            onClick={() => {
-              console.log(context.currentCharacter);
-              setAbilities((abilities) => !abilities);
-            }}
-          >
+          <Button onClick={() => setAbilities((abilities) => !abilities)}>
             Abilities
           </Button>
           {abilities && <Abilities />}
