@@ -1,7 +1,12 @@
 class AbilitiesController < ApplicationController
 
     def create
-        ability = Ability.create!(strength: params[:strength], dexterity: params[:dexterity], constitution: params[:constitution], intelligence: params[:intelligence], wisdom: params[:wisdom], charisma: params[:charisma], character_id: params[:characterID])
+        character = Character.find(params[:characterID])
+        # if character.abilities
+        #     ability = character.abilities.first.update(strength: params[:strength], dexterity: params[:dexterity, constitution: params[:constitution], intelligence: params[:intelligence], wisdom: params[:wisdom], charisma: params[:charisma], character_id: ability.character_id])
+        # else
+            ability = Ability.create!(strength: params[:strength], dexterity: params[:dexterity], constitution: params[:constitution], intelligence: params[:intelligence], wisdom: params[:wisdom], charisma: params[:charisma], character_id: params[:characterID])
+        # end
         render json: ability, status: :created
     rescue ActiveRecord::RecordInvalid => invalid
         render json: {errors: invalid.record.errors.full_messages}, status: :unprocessable_entity
@@ -9,12 +14,6 @@ class AbilitiesController < ApplicationController
 
     def show
         ability = Ability.find(params[:id])
-        render json: ability
-    end
-
-    def update
-        ability = Ability.find(params[:id])
-        ability.update(strength: params[:strength], dexterity: params[:dexterity, constitution: params[:constitution], intelligence: params[:intelligence], wisdom: params[wisdom], charisma: params[:charisma], character_id: ability.character_id])
         render json: ability
     end
 end

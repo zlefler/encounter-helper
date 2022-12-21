@@ -21,7 +21,12 @@ function Home() {
               {context.currentCharacter.name}
             </Typography>
           </Card>
-          <Button onClick={() => setAbilities((abilities) => !abilities)}>
+          <Button
+            onClick={() => {
+              console.log(context.currentCharacter);
+              setAbilities((abilities) => !abilities);
+            }}
+          >
             Abilities
           </Button>
           {abilities && <Abilities />}

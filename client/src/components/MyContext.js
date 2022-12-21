@@ -62,17 +62,25 @@ function MyProvider(props) {
       .then((data) => setCurrentCharacter(data));
   }
 
-  function OnSaveAbilities(newAbilities) {
+  function onSaveAbilities(newAbilities) {
     fetch(`/abilities`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        newAbilities,
+        strength: newAbilities.strength,
+        dexterity: newAbilities.dexterity,
+        constitution: newAbilities.constitution,
+        intelligence: newAbilities.intelligence,
+        wisdom: newAbilities.wisdom,
+        charisma: newAbilities.charisma,
         characterID: currentCharacter.id,
-      }).then((res) =>
-        res.json().then((abilityInfo) => setAbilities(abilityInfo))
-      ),
-    });
+      }),
+    }).then((res) =>
+      res.json().then((abilityInfo) => {
+        console.log(abilityInfo);
+        setAbilities(abilityInfo);
+      })
+    );
   }
 
   return (
@@ -82,7 +90,7 @@ function MyProvider(props) {
         onCreateCharacter,
         currentCharacter,
         setCurrentCharacter,
-        OnSaveAbilities,
+        onSaveAbilities,
         skills,
         setSkills,
         characters,
