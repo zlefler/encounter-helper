@@ -6,5 +6,4 @@ class CharacterTest < ActiveSupport::TestCase
     character = Character.create(name: 'guy', user_id: user.id)
     assert_equal(character.user, user)
   end
-
 end

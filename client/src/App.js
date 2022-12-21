@@ -8,10 +8,8 @@ import CharacterPicker from './components/CharacterPicker';
 import Navbar from './components/Navbar';
 import Name from './components/Name';
 
-// TODO: figure out how you want login info / signup stuff to persist on the page
-// Even if you don't want them to persist, you'll want a signout button to persist.
-
 // TODO: Make data persist when building character on front end
+// First up is abilities.
 
 // TODO: build functions to save/get stats from character on back end
 
