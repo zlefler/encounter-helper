@@ -36,6 +36,7 @@ class CreateSkills < ActiveRecord::Migration[7.0]
       t.integer :survival
       t.integer :swim
       t.integer :use_magic_device
+      t.integer :character_id, null: false
       t.timestamps
     end
   end

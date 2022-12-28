@@ -22,29 +22,22 @@ function SkillBlock({ skill }) {
   }, [abilityMod, miscMod, ranks]);
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'row', margin: '5px' }}>
-      <Typography>{skill}</Typography>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'row',
+        padding: '5px',
+        margin: '5px',
+      }}
+    >
       <TextField
         value={abilityMod}
         onChange={(e) => setAbilityMod(e.target.value)}
         className="skillblock"
-        sx={{ width: '120px', height: '10px' }}
+        sx={{ width: '120px', height: '40px', margin: '5px' }}
         label="Ability Mod"
       />
-      <TextField
-        value={ranks}
-        onChange={(e) => setRanks(e.target.value)}
-        className="skillblock"
-        sx={{ width: '90px', margin: '0 5px' }}
-        label="Ranks"
-      />
-      <TextField
-        value={miscMod}
-        onChange={(e) => setMiscMod(e.target.value)}
-        className="skillblock"
-        sx={{ width: '100px' }}
-        label="Misc Mod"
-      />
+      <Typography sx={{ margin: '5px' }}>{skill}</Typography>
       {abilityMod && <Typography>Total Bonus: {bonus}</Typography>}
     </div>
   );

@@ -1,6 +1,6 @@
 import { MyConsumer } from './MyContext';
 import { useState } from 'react';
-
+import { useNavigate } from 'react-router-dom';
 import { Card, Button, TextField, Typography } from '@mui/material';
 
 function DiceRoller() {
@@ -11,6 +11,11 @@ function DiceRoller() {
   const [d20, setd20] = useState('');
   const [dpct, setdpct] = useState('');
   const [rollTotal, setRollTotal] = useState('0');
+
+  let navigate = useNavigate();
+  function routeChange(path) {
+    navigate(path);
+  }
 
   function rollDice() {
     function getRandomInt(max) {
@@ -49,53 +54,56 @@ function DiceRoller() {
     setdpct('');
   }
 
-  // TODO: Fix MyContext: currently breaks this component Check out Encounter-Generator for help.
-
   return (
     <MyConsumer>
-      {(context) => {
-        <Card>
-          <TextField
-            sx={{ width: '80px', margin: '6px' }}
-            label="D4"
-            onChange={(e) => setd4(e.target.value)}
-            value={d4}
-          />
-          <TextField
-            sx={{ width: '80px', margin: '6px' }}
-            label="D6"
-            onChange={(e) => setd6(e.target.value)}
-            value={d6}
-          />
-          <TextField
-            sx={{ width: '80px', margin: '6px' }}
-            label="D8"
-            onChange={(e) => setd8(e.target.value)}
-            value={d8}
-          />
-          <TextField
-            sx={{ width: '80px', margin: '6px' }}
-            label="D10"
-            onChange={(e) => setd10(e.target.value)}
-            value={d10}
-          />
-          <TextField
-            sx={{ width: '80px', margin: '6px' }}
-            label="D20"
-            onChange={(e) => setd20(e.target.value)}
-            value={d20}
-          />
-          <TextField
-            sx={{ width: '80px', margin: '6px' }}
-            label="D%"
-            onChange={(e) => setdpct(e.target.value)}
-            value={dpct}
-          />
-          <Button onClick={() => rollDice()}>Roll</Button>
-          <Button onClick={() => clearRolls()}>Clear</Button>
-          {rollTotal && <Typography>Total: {rollTotal}</Typography>}
-        </Card>;
-      }}
+      {(context) => (
+        <>
+          <Card>
+            <TextField
+              sx={{ width: '80px', margin: '6px' }}
+              label="D4"
+              onChange={(e) => setd4(e.target.value)}
+              value={d4}
+            />
+            <TextField
+              sx={{ width: '80px', margin: '6px' }}
+              label="D6"
+              onChange={(e) => setd6(e.target.value)}
+              value={d6}
+            />
+            <TextField
+              sx={{ width: '80px', margin: '6px' }}
+              label="D8"
+              onChange={(e) => setd8(e.target.value)}
+              value={d8}
+            />
+            <TextField
+              sx={{ width: '80px', margin: '6px' }}
+              label="D10"
+              onChange={(e) => setd10(e.target.value)}
+              value={d10}
+            />
+            <TextField
+              sx={{ width: '80px', margin: '6px' }}
+              label="D20"
+              onChange={(e) => setd20(e.target.value)}
+              value={d20}
+            />
+            <TextField
+              sx={{ width: '80px', margin: '6px' }}
+              label="D%"
+              onChange={(e) => setdpct(e.target.value)}
+              value={dpct}
+            />
+            <Button onClick={() => rollDice()}>Roll</Button>
+            <Button onClick={() => clearRolls()}>Clear</Button>
+            {rollTotal && <Typography>Total: {rollTotal}</Typography>}
+          </Card>
+          <Button onClick={() => routeChange('/edit_character')}>
+            edit character
+          </Button>
+        </>
+      )}
     </MyConsumer>
   );
 }
