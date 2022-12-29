@@ -23,6 +23,7 @@ function CharacterPicker() {
                     key={character.id}
                     onClick={() => {
                       context.setCurrentCharacter(character);
+                      context.fetchAbilityAndSkills(character.id);
                       context.setNewCharacter(false);
                       routeChange('/edit_character');
                     }}

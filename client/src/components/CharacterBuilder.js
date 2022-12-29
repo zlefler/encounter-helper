@@ -10,7 +10,6 @@ function Home() {
   const [abilities, setAbilities] = useState(false);
   const [skills, setSkills] = useState(false);
   const [weapons, setWeapons] = useState(false);
-  const [name, setName] = useState('');
 
   const navigate = useNavigate();
   function routeChange(path) {

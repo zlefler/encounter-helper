@@ -1,4 +1,4 @@
-import { Box, Card, Typography, Button, TextField } from '@mui/material';
+import { Box, Typography, Button, TextField } from '@mui/material';
 import { MyConsumer } from './MyContext';
 import { useState } from 'react';
 
@@ -25,52 +25,71 @@ function Abilities() {
               })}
             </Card>
           )} */}
+          <Typography>Current stats:</Typography>
           <Box component="form">
             <Typography sx={{ alignItems: 'left' }} variant="h4">
-              Abilities
+              Abilities (old stats on right)
             </Typography>
-            <Typography>STR: </Typography>
-            <TextField
-              className="statScore"
-              onChange={(e) => setStrength(e.target.value)}
-              sx={{ width: '70px', margin: '0 5px' }}
-              defaultValue={strength}
-            />
-            <Typography>DEX: </Typography>
-            <TextField
-              className="statScore"
-              onChange={(e) => setDexterity(e.target.value)}
-              sx={{ width: '70px', margin: '0 5px' }}
-              defaultValue={dexterity}
-            />
-            <Typography>CON: </Typography>
-            <TextField
-              className="statScore"
-              onChange={(e) => setConstitution(e.target.value)}
-              sx={{ width: '70px', margin: '0 5px' }}
-              defaultValue={constitution}
-            />
-            <Typography>INT: </Typography>
-            <TextField
-              className="statScore"
-              onChange={(e) => setIntelligence(e.target.value)}
-              sx={{ width: '70px', margin: '0 5px' }}
-              defaultValue={intelligence}
-            />
-            <Typography>WIS: </Typography>
-            <TextField
-              className="statScore"
-              onChange={(e) => setWisdom(e.target.value)}
-              sx={{ width: '70px', margin: '0 5px' }}
-              defaultValue={wisdom}
-            />
-            <Typography>CHA: </Typography>
-            <TextField
-              className="statScore"
-              onChange={(e) => setCharisma(e.target.value)}
-              sx={{ width: '70px', margin: '0 5px' }}
-              defaultValue={charisma}
-            />
+            <div className="ability">
+              <Typography>STR: </Typography>
+              <TextField
+                className="statScore"
+                onChange={(e) => setStrength(e.target.value)}
+                sx={{ width: '70px', margin: '0 5px' }}
+                defaultValue={strength}
+              />
+              <Typography>{context.abilities.strength}</Typography>
+            </div>
+            <div className="ability">
+              <Typography>DEX: </Typography>
+              <TextField
+                className="statScore"
+                onChange={(e) => setDexterity(e.target.value)}
+                sx={{ width: '70px', margin: '0 5px' }}
+                defaultValue={dexterity}
+              />
+              <Typography>{context.abilities.dexterity}</Typography>
+            </div>
+            <div className="ability">
+              <Typography>CON: </Typography>
+              <TextField
+                className="statScore"
+                onChange={(e) => setConstitution(e.target.value)}
+                sx={{ width: '70px', margin: '0 5px' }}
+                defaultValue={constitution}
+              />
+              <Typography>{context.abilities.constitution}</Typography>
+            </div>
+            <div className="ability">
+              <Typography>INT: </Typography>
+              <TextField
+                className="statScore"
+                onChange={(e) => setIntelligence(e.target.value)}
+                sx={{ width: '70px', margin: '0 5px' }}
+                defaultValue={intelligence}
+              />
+              <Typography>{context.abilities.intelligence}</Typography>
+            </div>
+            <div className="ability">
+              <Typography>WIS: </Typography>
+              <TextField
+                className="statScore"
+                onChange={(e) => setWisdom(e.target.value)}
+                sx={{ width: '70px', margin: '0 5px' }}
+                defaultValue={wisdom}
+              />
+              <Typography>{context.abilities.wisdom}</Typography>
+            </div>
+            <div className="ability">
+              <Typography>CHA: </Typography>
+              <TextField
+                className="statScore"
+                onChange={(e) => setCharisma(e.target.value)}
+                sx={{ width: '70px', margin: '0 5px' }}
+                defaultValue={charisma}
+              />
+              <Typography>{context.abilities.charisma}</Typography>
+            </div>
             <Button
               variant="contained"
               onClick={() =>

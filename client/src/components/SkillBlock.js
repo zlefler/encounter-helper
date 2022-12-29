@@ -1,25 +1,8 @@
-import { Typography, TextField } from '@mui/material';
-import { useState, useEffect } from 'react';
+import { TextField, Typography } from '@mui/material';
+import { useState } from 'react';
 
 function SkillBlock({ skill }) {
-  const [abilityMod, setAbilityMod] = useState('');
-  const [ranks, setRanks] = useState('');
-  const [miscMod, setMiscMod] = useState('');
-  const [bonus, setBonus] = useState('');
-
-  useEffect(() => {
-    let temp = 0;
-    if (abilityMod) {
-      temp += parseInt(abilityMod);
-    }
-    if (miscMod) {
-      temp += parseInt(miscMod);
-    }
-    if (ranks) {
-      temp += parseInt(ranks);
-    }
-    setBonus(temp);
-  }, [abilityMod, miscMod, ranks]);
+  const [score, setScore] = useState('');
 
   return (
     <div
@@ -31,14 +14,13 @@ function SkillBlock({ skill }) {
       }}
     >
       <TextField
-        value={abilityMod}
-        onChange={(e) => setAbilityMod(e.target.value)}
+        value={score}
+        onChange={(e) => setScore(e.target.value)}
         className="skillblock"
         sx={{ width: '120px', height: '40px', margin: '5px' }}
         label="Ability Mod"
       />
-      <Typography sx={{ margin: '5px' }}>{skill}</Typography>
-      {abilityMod && <Typography>Total Bonus: {bonus}</Typography>}
+      <Typography sx={{ padding: '20px 0 0 0' }}>{skill}</Typography>
     </div>
   );
 }

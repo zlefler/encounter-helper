@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   get '/me', to: 'users#show'
   post '/signup', to: 'users#create'
   post '/characters/:character_name', to: 'characters#create_or_patch'
-  get '/get_abilities/:id', to: 'abilities#show'
+  get '/character/:id/abilities', to: 'abilities#show'
+  get '/character/:id/skills', to: 'skills#show'
 end

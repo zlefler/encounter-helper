@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 const MyContext = React.createContext();
 
@@ -11,6 +11,12 @@ function MyProvider(props) {
   const [currentCharacter, setCurrentCharacter] = useState('');
   const [newCharacter, setNewCharacter] = useState(true);
 
+  const fetchCharacters = useCallback(() => {
+    fetch(`/characters/${user.id}`).then((res) => {
+      res.json().then((characterInfo) => setCharacters(characterInfo));
+    });
+  }, [user]);
+
   useEffect(() => {
     fetch('/me').then((res) => {
       if (res.ok) {
@@ -20,21 +26,19 @@ function MyProvider(props) {
         });
       }
     });
+  }, [fetchCharacters]);
+
+  const fetchAbilityAndSkills = useCallback((id) => {
+    fetch(`character/${id}/abilities`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setAbilities(data);
+      });
+    fetch(`character/${id}/skills`)
+      .then((res) => res.json())
+      .then((data) => setSkills(data));
   }, []);
-
-  useEffect(() => {
-    if (currentCharacter) {
-      fetch(`get_abilities/${currentCharacter.id}`)
-        .then((res) => res.json())
-        .then((data) => setAbilities(data));
-    }
-  }, [currentCharacter]);
-
-  function fetchCharacters() {
-    fetch(`/characters/${user.id}`).then((res) => {
-      res.json().then((characterInfo) => setCharacters(characterInfo));
-    });
-  }
 
   function onLogout() {
     fetch('/logout', {
@@ -67,12 +71,15 @@ function MyProvider(props) {
       body: JSON.stringify({ name: characterName, level: characterLevel }),
     })
       .then((res) => res.json())
-      .then((data) => setCurrentCharacter(data));
+      .then((data) => {
+        setCurrentCharacter(data);
+        fetchAbilityAndSkills(data.id);
+      });
   }
 
   function onSaveAbilities(newAbilities) {
-    fetch(`/abilities`, {
-      method: 'POST',
+    fetch(`/abilities/${currentCharacter.id}`, {
+      method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         strength: newAbilities.strength,
@@ -81,7 +88,6 @@ function MyProvider(props) {
         intelligence: newAbilities.intelligence,
         wisdom: newAbilities.wisdom,
         charisma: newAbilities.charisma,
-        characterID: currentCharacter.id,
       }),
     }).then((res) =>
       res.json().then((abilityInfo) => setAbilities(abilityInfo))
@@ -106,6 +112,7 @@ function MyProvider(props) {
         loginFailed,
         newCharacter,
         setNewCharacter,
+        fetchAbilityAndSkills,
       }}
     >
       {props.children}

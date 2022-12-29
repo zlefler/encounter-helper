@@ -1,5 +1,5 @@
-import SkillBlock from './SkillBlock';
 import { Typography } from '@mui/material';
+import SkillBlock from './SkillBlock';
 
 function Skills() {
   const skills = [
