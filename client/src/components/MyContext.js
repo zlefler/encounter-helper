@@ -122,4 +122,4 @@ function MyProvider(props) {
 
 const MyConsumer = MyContext.Consumer;
 
-export { MyProvider, MyConsumer };
+export { MyProvider, MyConsumer, MyContext };

@@ -1,14 +1,15 @@
 import { Box, Typography, Button, TextField } from '@mui/material';
-import { MyConsumer } from './MyContext';
-import { useState } from 'react';
+import { MyConsumer, MyContext } from './MyContext';
+import { useState, useContext } from 'react';
 
 function Abilities() {
-  const [strength, setStrength] = useState('');
-  const [dexterity, setDexterity] = useState('');
-  const [constitution, setConstitution] = useState('');
-  const [intelligence, setIntelligence] = useState('');
-  const [wisdom, setWisdom] = useState('');
-  const [charisma, setCharisma] = useState('');
+  const { abilities } = useContext(MyContext);
+  const [strength, setStrength] = useState(abilities.strength);
+  const [dexterity, setDexterity] = useState(abilities.dexterity);
+  const [constitution, setConstitution] = useState(abilities.constitution);
+  const [intelligence, setIntelligence] = useState(abilities.intelligence);
+  const [wisdom, setWisdom] = useState(abilities.wisdom);
+  const [charisma, setCharisma] = useState(abilities.charisma);
 
   return (
     <MyConsumer>
@@ -25,10 +26,9 @@ function Abilities() {
               })}
             </Card>
           )} */}
-          <Typography>Current stats:</Typography>
           <Box component="form">
             <Typography sx={{ alignItems: 'left' }} variant="h4">
-              Abilities (old stats on right)
+              Abilities
             </Typography>
             <div className="ability">
               <Typography>STR: </Typography>
@@ -38,7 +38,6 @@ function Abilities() {
                 sx={{ width: '70px', margin: '0 5px' }}
                 defaultValue={strength}
               />
-              <Typography>{context.abilities.strength}</Typography>
             </div>
             <div className="ability">
               <Typography>DEX: </Typography>
@@ -48,7 +47,6 @@ function Abilities() {
                 sx={{ width: '70px', margin: '0 5px' }}
                 defaultValue={dexterity}
               />
-              <Typography>{context.abilities.dexterity}</Typography>
             </div>
             <div className="ability">
               <Typography>CON: </Typography>
@@ -58,7 +56,6 @@ function Abilities() {
                 sx={{ width: '70px', margin: '0 5px' }}
                 defaultValue={constitution}
               />
-              <Typography>{context.abilities.constitution}</Typography>
             </div>
             <div className="ability">
               <Typography>INT: </Typography>
@@ -68,7 +65,6 @@ function Abilities() {
                 sx={{ width: '70px', margin: '0 5px' }}
                 defaultValue={intelligence}
               />
-              <Typography>{context.abilities.intelligence}</Typography>
             </div>
             <div className="ability">
               <Typography>WIS: </Typography>
@@ -78,7 +74,6 @@ function Abilities() {
                 sx={{ width: '70px', margin: '0 5px' }}
                 defaultValue={wisdom}
               />
-              <Typography>{context.abilities.wisdom}</Typography>
             </div>
             <div className="ability">
               <Typography>CHA: </Typography>
@@ -88,7 +83,6 @@ function Abilities() {
                 sx={{ width: '70px', margin: '0 5px' }}
                 defaultValue={charisma}
               />
-              <Typography>{context.abilities.charisma}</Typography>
             </div>
             <Button
               variant="contained"
