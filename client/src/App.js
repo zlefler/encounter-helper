@@ -8,7 +8,7 @@ import CharacterPicker from './components/CharacterPicker';
 import Navbar from './components/Navbar';
 import Name from './components/Name';
 
-// TODO: Check if new ability update works.
+// TODO: Check if new ability update works
 
 // TODO: Make data persist when building character on front end
 
