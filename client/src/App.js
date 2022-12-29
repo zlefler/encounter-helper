@@ -8,9 +8,7 @@ import CharacterPicker from './components/CharacterPicker';
 import Navbar from './components/Navbar';
 import Name from './components/Name';
 
-// TODO: You made it so a character gets a Skill sheet and an Ability sheet as soon
-// as the character is created. Make sure both front and back end know that
-// you're never going to be creating a skill or ability sheet anymore.
+// TODO: Check if new ability update works.
 
 // TODO: Make data persist when building character on front end
 

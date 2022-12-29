@@ -15,8 +15,8 @@ class CharactersController < ApplicationController
         render json: user.characters
     end
 
-    def create_skills(id)
-        Skill.create(
+    def create_abilities(id)
+        Ability.create(
             character_id: id,
             strength: 0,
             dexterity: 0,
@@ -27,8 +27,8 @@ class CharactersController < ApplicationController
         )
     end
 
-    def create_abilities(id)
-        Ability.create(
+    def create_skills(id)
+        Skill.create(
             character_id: id,
             acrobatics: 0,
             appraise: 0,
