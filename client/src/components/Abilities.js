@@ -27,18 +27,15 @@ function Abilities() {
           )} */}
           <Typography>Current stats:</Typography>
           <Box component="form">
-            <Typography sx={{ alignItems: 'left' }} variant="h4">
-              Abilities (old stats on right)
-            </Typography>
+            <Typography sx={{ alignItems: 'left' }} variant="h4"></Typography>
             <div className="ability">
               <Typography>STR: </Typography>
               <TextField
                 className="statScore"
                 onChange={(e) => setStrength(e.target.value)}
                 sx={{ width: '70px', margin: '0 5px' }}
-                defaultValue={strength}
+                defaultValue={context.abilities.strength}
               />
-              <Typography>{context.abilities.strength}</Typography>
             </div>
             <div className="ability">
               <Typography>DEX: </Typography>
@@ -46,9 +43,8 @@ function Abilities() {
                 className="statScore"
                 onChange={(e) => setDexterity(e.target.value)}
                 sx={{ width: '70px', margin: '0 5px' }}
-                defaultValue={dexterity}
+                defaultValue={context.abilities.dexterity}
               />
-              <Typography>{context.abilities.dexterity}</Typography>
             </div>
             <div className="ability">
               <Typography>CON: </Typography>
@@ -56,9 +52,8 @@ function Abilities() {
                 className="statScore"
                 onChange={(e) => setConstitution(e.target.value)}
                 sx={{ width: '70px', margin: '0 5px' }}
-                defaultValue={constitution}
+                defaultValue={context.abilities.constitution}
               />
-              <Typography>{context.abilities.constitution}</Typography>
             </div>
             <div className="ability">
               <Typography>INT: </Typography>
@@ -66,9 +61,8 @@ function Abilities() {
                 className="statScore"
                 onChange={(e) => setIntelligence(e.target.value)}
                 sx={{ width: '70px', margin: '0 5px' }}
-                defaultValue={intelligence}
+                defaultValue={context.abilities.intelligence}
               />
-              <Typography>{context.abilities.intelligence}</Typography>
             </div>
             <div className="ability">
               <Typography>WIS: </Typography>
@@ -76,9 +70,8 @@ function Abilities() {
                 className="statScore"
                 onChange={(e) => setWisdom(e.target.value)}
                 sx={{ width: '70px', margin: '0 5px' }}
-                defaultValue={wisdom}
+                defaultValue={context.abilities.wisdom}
               />
-              <Typography>{context.abilities.wisdom}</Typography>
             </div>
             <div className="ability">
               <Typography>CHA: </Typography>
@@ -86,9 +79,8 @@ function Abilities() {
                 className="statScore"
                 onChange={(e) => setCharisma(e.target.value)}
                 sx={{ width: '70px', margin: '0 5px' }}
-                defaultValue={charisma}
+                defaultValue={context.abilities.charisma}
               />
-              <Typography>{context.abilities.charisma}</Typography>
             </div>
             <Button
               variant="contained"

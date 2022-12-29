@@ -10,6 +10,6 @@ User.create([{username: 'asdf', password_digest: BCrypt::Password.create('1234')
 
 Character.create([{name: 'Astaroth', user_id: 1}])
 
-Ability.first.update([{strength: 14, dexterity: 11, constitution: 12, intelligence: 14, wisdom: 11, charisma: 9, character_id: 1}])
+Ability.create([{strength: 14, dexterity: 11, constitution: 12, intelligence: 14, wisdom: 11, charisma: 9, character_id: 1}])
 
-Skill.first.update([{perception: 5, use_magic_device: 8, intimidate: 12, character_id: 1}])
+Skill.create([{perception: 5, use_magic_device: 8, intimidate: 12, character_id: 1}])
