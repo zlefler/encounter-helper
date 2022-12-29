@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 const MyContext = React.createContext();
 
@@ -16,7 +16,6 @@ function MyProvider(props) {
       if (res.ok) {
         res.json().then((currentUser) => {
           setUser(currentUser);
-          fetchCharacters();
         });
       }
     });
@@ -30,11 +29,11 @@ function MyProvider(props) {
     }
   }, [currentCharacter]);
 
-  function fetchCharacters() {
+  const fetchCharacters = useCallback(() => {
     fetch(`/characters/${user.id}`).then((res) => {
       res.json().then((characterInfo) => setCharacters(characterInfo));
     });
-  }
+  }, [user]);
 
   function onLogout() {
     fetch('/logout', {
