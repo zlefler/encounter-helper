@@ -1,4 +1,3 @@
-import SkillBlock from './SkillBlock';
 import { Typography } from '@mui/material';
 
 function Skills() {

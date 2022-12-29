@@ -1,4 +1,4 @@
-import { TextField } from '@mui/material';
+import { TextField, Typography } from '@mui/material';
 import { useState } from 'react';
 
 function SkillBlock({ skill }) {
@@ -20,6 +20,7 @@ function SkillBlock({ skill }) {
         sx={{ width: '120px', height: '40px', margin: '5px' }}
         label="Ability Mod"
       />
+      <Typography sx={{ padding: '20px 0 0 0' }}>{skill}</Typography>
     </div>
   );
 }

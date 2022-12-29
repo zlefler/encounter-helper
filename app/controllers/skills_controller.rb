@@ -15,7 +15,7 @@ class SkillsController < ApplicationController
 
     private
 
-    def abilities_params
+    def skills_params
         params.permit(:acrobatics,
             :appraise,
             :bluff,
@@ -51,4 +51,5 @@ class SkillsController < ApplicationController
             :survival,
             :swim,
             :use_magic_device)
+    end
 end
