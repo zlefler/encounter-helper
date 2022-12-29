@@ -25,6 +25,7 @@ class CharactersController < ApplicationController
             wisdom: 0,
             charisma: 0,
         )
+    end
 
     def create_abilities(id)
         Ability.create(

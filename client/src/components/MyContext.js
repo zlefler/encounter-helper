@@ -21,12 +21,13 @@ function MyProvider(props) {
     });
   }, []);
 
-  useEffect(() => {
-    if (currentCharacter) {
-      fetch(`get_abilities/${currentCharacter.id}`)
-        .then((res) => res.json())
-        .then((data) => setAbilities(data));
-    }
+  const fetchAbilityAndSkills = useCallback(() => {
+    fetch(`character/${currentCharacter.id}/abilities`)
+      .then((res) => res.json())
+      .then((data) => setAbilities(data));
+    fetch(`character${currentCharacter.id}/skills`)
+      .then((res) => res.json())
+      .then((data) => setSkills(data));
   }, [currentCharacter]);
 
   const fetchCharacters = useCallback(() => {
@@ -66,7 +67,8 @@ function MyProvider(props) {
       body: JSON.stringify({ name: characterName, level: characterLevel }),
     })
       .then((res) => res.json())
-      .then((data) => setCurrentCharacter(data));
+      .then((data) => setCurrentCharacter(data))
+      .then(fetchAbilityAndSkills());
   }
 
   function onSaveAbilities(newAbilities) {
