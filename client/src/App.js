@@ -8,9 +8,11 @@ import CharacterPicker from './components/CharacterPicker';
 import Navbar from './components/Navbar';
 import Name from './components/Name';
 
-// TODO: Make data persist when building character on front end
+// TODO: fix useEffects and useCallbacks to stop repeat renders
 
-// TODO: Refactor Skills like you did Abilities
+// TODO: Try to refactor Skills to be DRY
+
+// TODO: make sure Skills CRUD persists
 
 function App() {
   return (
