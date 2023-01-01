@@ -11,7 +11,7 @@ function MyProvider(props) {
   const [currentCharacter, setCurrentCharacter] = useState('');
   const [newCharacter, setNewCharacter] = useState(true);
 
-  const fetchCharacters = useCallback(() => {
+  useEffect(() => {
     fetch(`/characters/${user.id}`).then((res) => {
       res.json().then((characterInfo) => setCharacters(characterInfo));
     });
@@ -20,13 +20,10 @@ function MyProvider(props) {
   useEffect(() => {
     fetch('/me').then((res) => {
       if (res.ok) {
-        res.json().then((currentUser) => {
-          setUser(currentUser);
-          fetchCharacters();
-        });
+        res.json().then((currentUser) => setUser(currentUser));
       }
     });
-  }, [fetchCharacters]);
+  }, []);
 
   const fetchAbilityAndSkills = useCallback((id) => {
     fetch(`character/${id}/abilities`)
@@ -57,7 +54,6 @@ function MyProvider(props) {
       if (res.ok) {
         setLoginFailed(false);
         res.json().then((userInfo) => userInfo);
-        fetchCharacters();
       } else {
         setLoginFailed(true);
       }

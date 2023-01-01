@@ -8,8 +8,6 @@ import CharacterPicker from './components/CharacterPicker';
 import Navbar from './components/Navbar';
 import Name from './components/Name';
 
-// TODO: fix useEffects and useCallbacks to stop repeat renders
-
 // TODO: Try to refactor Skills to be DRY
 
 // TODO: make sure Skills CRUD persists
